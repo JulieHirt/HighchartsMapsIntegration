@@ -258,23 +258,16 @@ this.renderSea = function(e)
 
 this.rotateMap = function(coords)
 {
-    const rotation = coords; 
-        const geodesic = Highcharts.Projection.greatCircle(
-        this.widget.mapView.projection.options.rotation,
-          rotation
-        );
 
-        geodesic.forEach((rotationStep, i) =&gt; {
-          setTimeout(() =&gt; {
-            rotationStep.push(0);
+
             this.widget.mapView.update({
               projection: {
-                  rotation: rotationStep
+                  rotation: coords
               }
         }, true, false);//redraw is true, animation is false
 
-          }, 25 * i);
-        }); 
+
+
 
 }//end rotateMap
 
