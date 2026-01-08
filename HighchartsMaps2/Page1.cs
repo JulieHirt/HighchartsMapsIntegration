@@ -98,7 +98,7 @@ public int index = 0;
                     id = "graticule",
                     type = "mapline",
                     data = new dynamic[] { },
-                    nullColor = "rgba(11,127,171,0.5",
+                    nullColor = "rgba(11,127,171,0.5)",
                     accessibility = new
                     {
                         enabled = false
