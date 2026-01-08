@@ -37,7 +37,10 @@ public int index = 0;
             //add all the continent names to the combobox
             this.comboBox1.Items.AddRange(new[] { "Africa", "Arctic", "Asia", "Australia", "Europe", "North America", "South America" });
 
-            //set the chart title
+            this.widget1.Options.chart = new
+            {
+                map = getTopology()
+            };
             this.widget1.Options.title = new
             {
                 text = "Airport density per country",
@@ -59,10 +62,7 @@ public int index = 0;
             {
                 enabled = false
             };
-            this.widget1.Options.chart = new
-            {
-                map = getTopology()
-            };
+            
 
             this.widget1.Options.mapNavigation = new
             {
