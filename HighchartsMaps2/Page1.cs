@@ -11,8 +11,9 @@ namespace HighchartsMaps2
 {
     public partial class Page1 : Page
     {
-        public int[][] continentCoordinatesArray = new int[7][];//has 4 elements, each of which is a single-dimensional array of integers:
-       
+        public int[][] continentCoordinatesArray = new int[7][];//has 7 elements, each of which is a single-dimensional array of integers:
+       //its a jagged array- array of arrays. The inner array can be different lengths.
+
 public int index = 0;
         public Page1()
         {
