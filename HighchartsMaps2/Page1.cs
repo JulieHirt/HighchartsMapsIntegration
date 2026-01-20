@@ -11,20 +11,20 @@ namespace HighchartsMaps2
 {
     public partial class Page1 : Page
     {
-        public int[][] continentCoordinatesArray = new int[7][];//has 7 elements, each of which is a single-dimensional array of integers:
+        public int[,] continentCoordinatesArray = new int[7, 2];//7 rows (continents), 2 columns (rotation coords)
        //its a jagged array- array of arrays. The inner array can be different lengths.
 
 public int index = 0;
         public Page1()
         {
             InitializeComponent();
-            continentCoordinatesArray[0] = new int[] { -21, 0 }; //africa
-            continentCoordinatesArray[1] = new int[] { 5, -43 };//europe
-            continentCoordinatesArray[2] = new int[] { -94, -27 };//asia
-            continentCoordinatesArray[3] = new int[] { -108, 21 }; //australia
-            continentCoordinatesArray[4] = new int[] { 50, -96 }; //arctic
-            continentCoordinatesArray[5] = new int[] { 110, -33 };//north america
-            continentCoordinatesArray[6] = new int[] { 57, 2 }; //south america
+            continentCoordinatesArray[0, 0] = -21; continentCoordinatesArray[0, 1] = 0; //africa
+            continentCoordinatesArray[1, 0] = 5; continentCoordinatesArray[1, 1] = -43; //europe
+            continentCoordinatesArray[2, 0] = -94; continentCoordinatesArray[2, 1] = -27; //asia
+            continentCoordinatesArray[3, 0] = -108; continentCoordinatesArray[3, 1] = 21; //australia
+            continentCoordinatesArray[4, 0] = 50; continentCoordinatesArray[4, 1] = -96; //arctic
+            continentCoordinatesArray[5, 0] = 110; continentCoordinatesArray[5, 1] = -33; //north america
+            continentCoordinatesArray[6, 0] = 57; continentCoordinatesArray[6, 1] = 2; //south america
 
             //set the color textbox so it is the same color as the initial continents color (green)
             textBox2.Text = "#31784B";//max color dark green
@@ -159,9 +159,9 @@ public int index = 0;
         public void SwitchContinent()
         {
 
-            int[] coords = continentCoordinatesArray[index];//coordinates of the current continent to show
+            int[] coords = new[] { continentCoordinatesArray[index, 0], continentCoordinatesArray[index, 1] }; //coordinates of the current continent to show
             index += 1;
-            if(index > continentCoordinatesArray.Length -1)
+            if(index > continentCoordinatesArray.GetLength(0) -1)
             {
                 index = 0;//reset the loop
             }
