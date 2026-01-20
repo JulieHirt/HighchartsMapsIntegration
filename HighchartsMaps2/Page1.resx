@@ -260,11 +260,26 @@ this.rotateMap = function(coords)
 {
 
 
-            this.widget.mapView.update({
+            var chart = this.widget;
+            var mapView = chart.mapView;
+            var center = mapView.center ? mapView.center.slice() : [0, 0];
+            var zoom = mapView.zoom || 1;
+
+            mapView.update({
               projection: {
                   rotation: coords
               }
-        }, true, false);//redraw is true, animation is false
+          }, false, false);
+
+            if (mapView.setView) {
+                mapView.setView(center, zoom, false);
+                chart.redraw(false);
+            } else {
+                mapView.update({
+                  center: center,
+                  zoom: zoom
+              }, true, false);//redraw is true, animation is false
+            }
 
 
 
